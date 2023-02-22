@@ -13,3 +13,8 @@ export interface Rectangle {
   width:number;
   height:number;
 }
+
+export interface Mapping {
+  originalIndex:number;
+  newIndex:number;
+}

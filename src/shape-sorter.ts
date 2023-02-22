@@ -1,10 +1,11 @@
-import { Polygon, Rectangle } from "./definitions";
+import { Mapping, Polygon, Rectangle } from "./definitions";
 
 export default class ShapeSorter {
-  sortPolygons(polygons:Polygon[]): Polygon[] {
+  sortPolygons(polygons:Polygon[]): Mapping[] {
     return [];
   }
-  sortRectangles(rectangles:Rectangle[]): Rectangle[] {
+  
+  sortRectangles(rectangles:Rectangle[]): Mapping[] {
     return [];
   }
 }
