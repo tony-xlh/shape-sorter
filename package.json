@@ -2,10 +2,24 @@
   "name": "shape-sorter",
   "version": "1.0.0",
   "description": "Sort shapes (rectangles, polygons, etc) in reading order",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "type": "module",
+  "source": "src/shape-sorter.ts",
+  "main": "./dist/shape-sorter.js",
+  "exports": {
+    "require": "./dist/shape-sorter.cjs",
+    "default": "./dist/shape-sorter.modern.js"
   },
+  "unpkg": "./dist/shape-sorter.umd.js",
+  "amdName": "ShapeSorter",
+  "scripts": {
+    "build": "microbundle build",
+    "dev": "microbundle watch"
+  },
+  "files": [
+    "dist/*.js",
+    "dist/*.cjs",
+    "dist/*.d.ts"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tony-xlh/shape-sorter.git"
@@ -23,5 +37,8 @@
   "bugs": {
     "url": "https://github.com/tony-xlh/shape-sorter/issues"
   },
-  "homepage": "https://github.com/tony-xlh/shape-sorter#readme"
+  "homepage": "https://github.com/tony-xlh/shape-sorter#readme",
+  "devDependencies": {
+    "microbundle": "^0.15.1"
+  }
 }
