@@ -1,0 +1,27 @@
+{
+  "name": "shape-sorter",
+  "version": "1.0.0",
+  "description": "Sort shapes (rectangles, polygons, etc) in reading order",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tony-xlh/shape-sorter.git"
+  },
+  "keywords": [
+    "barcode",
+    "sorter",
+    "shape",
+    "rectangle",
+    "polygon",
+    "dynamsoft"
+  ],
+  "author": "Lihang Xu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tony-xlh/shape-sorter/issues"
+  },
+  "homepage": "https://github.com/tony-xlh/shape-sorter#readme"
+}
