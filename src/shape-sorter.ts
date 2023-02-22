@@ -1,4 +1,4 @@
-import { Polygon, Rectangle } from "./Definitions";
+import { Polygon, Rectangle } from "./definitions";
 
 export default class ShapeSorter {
   sortPolygons(polygons:Polygon[]): Polygon[] {
