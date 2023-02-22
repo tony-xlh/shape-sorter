@@ -1,6 +1,6 @@
 import "./styles.css";
 import { BarcodeReader, TextResult } from "dynamsoft-javascript-barcode";
-import ShapeSorter from "../../dist/shape-sorter";
+import {default as ShapeSorter}  from "shape-sorter";
 
 let reader:BarcodeReader;
 let img:HTMLImageElement;
