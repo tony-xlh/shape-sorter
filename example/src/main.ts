@@ -1,8 +1,10 @@
 import "./styles.css";
 import { BarcodeReader, TextResult } from "dynamsoft-javascript-barcode";
+import ShapeSorter from "../../dist/shape-sorter";
 
 let reader:BarcodeReader;
 let img:HTMLImageElement;
+let results:TextResult[];
 
 window.onload = function(){
   console.log("loaded");
@@ -18,6 +20,7 @@ window.onload = function(){
   let sortButton = document.getElementById('sortButton') as HTMLButtonElement;
   sortButton.addEventListener("click",function(){
     console.log("sort");
+    sortTextResults();
   })
 }
 
@@ -72,7 +75,7 @@ async function decodeImg(){
   if (!reader) {
     await initDBR();
   }
-  let results = await reader.decode(img);
+  results = await reader.decode(img);
   console.log(results);
   overlayResults(results);
   status.innerText = "";
@@ -110,6 +113,17 @@ function clearElements(parent:HTMLElement,tagName:string){
     let ele=elements[0];
     ele.remove();
   }
+}
+
+function sortTextResults(){
+  let sorter = new ShapeSorter();
+  let polygons = polygonsFromTextResult();
+  let mapping = sorter.sortPolygons(polygons);
+  console.log(mapping);
+}
+
+function polygonsFromTextResult(){
+  return [];
 }
 
 export {}
