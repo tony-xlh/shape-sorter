@@ -13,6 +13,7 @@
     "vite": "^4.1.0"
   },
   "dependencies": {
+    "dynamsoft-javascript-barcode": "^9.6.10",
     "shape-sorter": "file:.."
   }
 }

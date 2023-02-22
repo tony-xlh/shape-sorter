@@ -1,0 +1,11 @@
+.barcode-polygon {
+  fill:rgba(85,240,40,0.4);
+  stroke:green;
+  stroke-width:5;
+}
+
+.barcode-polygon:hover {
+  fill:rgba(85,240,40,0.6);
+  stroke:green;
+  stroke-width:5;
+}
