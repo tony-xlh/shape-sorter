@@ -1,6 +1,6 @@
 import "./styles.css";
 import { BarcodeReader, TextResult } from "dynamsoft-javascript-barcode";
-import ShapeSorter, {Point, Polygon, Rectangle } from "./shape-sorter";
+import ShapeSorter, {Mapping, Point, Polygon, Rectangle } from "./shape-sorter";
 
 let reader:BarcodeReader;
 let img:HTMLImageElement;
@@ -83,7 +83,7 @@ async function decodeImg(){
 
 function overlayResults(results:TextResult[]){
   let svgElement = document.getElementById("resultSVG") as HTMLElement;
-  clearElements(svgElement,"polygon");
+  clearElements(svgElement,"a");
   for (let i = 0; i < results.length; i++) {
     const result = results[i];
     let a = document.createElementNS("http://www.w3.org/2000/svg","a");
@@ -161,8 +161,9 @@ function clearElements(parent:HTMLElement,tagName:string){
 function sortTextResults(){
   let sorter = new ShapeSorter();
   let polygons = polygonsFromTextResults();
-  let mapping = sorter.sortPolygons(polygons);
-  console.log(mapping);
+  let mappings = sorter.sortPolygons(polygons);
+  console.log(mappings);
+  reorderResultsAndUpdateOverlay(mappings)
 }
 
 function polygonsFromTextResults(){
@@ -172,6 +173,19 @@ function polygonsFromTextResults(){
     polygons.push(getPolygonFromResult(result,index));
   }
   return polygons;
+}
+
+function reorderResultsAndUpdateOverlay(mappings:Mapping[]){
+  let newResults:TextResult[] = [];
+  for (let index = 0; index < mappings.length; index++) {
+    const mapping = mappings[index];
+    const originalIndex = mapping.originalIndex;
+    if (originalIndex != undefined) {
+      newResults.push(results[originalIndex]);
+    }
+  }
+  results = newResults;
+  overlayResults(results);
 }
 
 export {}
