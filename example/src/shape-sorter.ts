@@ -12,10 +12,20 @@ export default class ShapeSorter {
   }
   
   sortRectangles(rectangles:Rectangle[]): Mapping[] {
-    console.log(rectangles);
     rectangles.sort((a, b) => (a.x**2 + a.y**2) - (b.x**2 + b.y**2))
     console.log(rectangles);
-    return [];
+    return this.getMappingsFromRectangles(rectangles);
+  }
+
+  getMappingsFromRectangles(rectangles:Rectangle[]): Mapping[] {
+    let mappings:Mapping[] = [];
+    for (let index = 0; index < rectangles.length; index++) {
+      const rect = rectangles[index];
+      if (rect.mapping) {
+        mappings.push(rect.mapping);
+      }
+    }
+    return mappings;
   }
 
   convertPolygonToRectangle(polygon:Polygon):Rectangle{
