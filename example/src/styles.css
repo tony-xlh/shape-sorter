@@ -1,5 +1,5 @@
 .barcode-polygon {
-  fill:rgba(85,240,40,0.4);
+  fill:rgba(85,240,40,0.9);
   stroke:green;
   stroke-width:5;
 }
@@ -8,4 +8,11 @@
   fill:rgba(85,240,40,0.6);
   stroke:green;
   stroke-width:5;
+}
+
+.order {
+  fill: red;
+  stroke: red;
+  stroke-width: 1;
+  font-weight: bold;
 }

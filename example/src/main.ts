@@ -1,6 +1,6 @@
 import "./styles.css";
 import { BarcodeReader, TextResult } from "dynamsoft-javascript-barcode";
-import {default as ShapeSorter}  from "shape-sorter";
+import {default as ShapeSorter,Point,Rectangle}  from "shape-sorter";
 
 let reader:BarcodeReader;
 let img:HTMLImageElement;
@@ -92,10 +92,44 @@ function overlayResults(results:TextResult[]){
     polygon.setAttribute("class","barcode-polygon");
     let title = document.createElementNS("http://www.w3.org/2000/svg","title");
     title.textContent = result.barcodeFormatString + ": " + result.barcodeText;
+    const rect = getRectangleFromResult(result);
+    const center:Point =  {x:rect.x+rect.width/2,y:rect.y+rect.height/2};
+    let text = document.createElementNS("http://www.w3.org/2000/svg","text");
+    let fontSize = 25;
+    text.setAttribute("x",(center.x - fontSize/2).toString());
+    text.setAttribute("y",center.y.toString());
+    text.classList.add("order");
+    text.style.fontSize = fontSize.toString();
+    text.textContent  = (i + 1).toString();
     polygon.append(title);
-    a.append(polygon)
+    a.append(polygon);
+    a.append(text);
     svgElement.append(a);
   }
+}
+
+function getRectangleFromResult(result:TextResult):Rectangle{
+  let minX,minY,maxX,maxY;
+  minX = result.localizationResult.x1;
+  minY = result.localizationResult.y1;
+  maxX = 0;
+  maxY = 0;
+  for (let index = 1; index <= 4; index++) {
+    const lr = result.localizationResult as any;
+    const x = lr["x"+index];
+    const y = lr["y"+index];
+    minX = Math.min(minX,x);
+    minY = Math.min(minY,y);
+    maxX = Math.max(maxX,x);
+    maxY = Math.max(maxY,y);
+  }
+  const rect:Rectangle = {
+    x:minX,
+    y:minY,
+    width: maxX-minX,
+    height:maxY - minY
+  }
+  return rect;
 }
 
 function getPointsAttributeFromResult(result:TextResult) {
