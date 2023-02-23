@@ -132,12 +132,12 @@ function getRectangleFromResult(result:TextResult):Rectangle{
   return rect;
 }
 
-function getPolygonFromResult(result:TextResult):Polygon{
+function getPolygonFromResult(result:TextResult,index:number):Polygon{
   const point1:Point = {x:result.localizationResult.x1,y:result.localizationResult.y1};
   const point2:Point = {x:result.localizationResult.x2,y:result.localizationResult.y2};
   const point3:Point = {x:result.localizationResult.x3,y:result.localizationResult.y3};
   const point4:Point = {x:result.localizationResult.x4,y:result.localizationResult.y4};
-  const polygon:Polygon = {points:[point1,point2,point3,point4]};
+  const polygon:Polygon = {points:[point1,point2,point3,point4],mapping:{originalIndex:index}};
   return polygon;
 }
 
@@ -169,7 +169,7 @@ function polygonsFromTextResults(){
   let polygons = [];
   for (let index = 0; index < results.length; index++) {
     const result = results[index];
-    polygons.push(getPolygonFromResult(result));
+    polygons.push(getPolygonFromResult(result,index));
   }
   return polygons;
 }

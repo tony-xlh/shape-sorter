@@ -3,8 +3,15 @@ export interface Point {
   y:number;
 }
 
+export interface Mapping {
+  originalIndex?:number;
+  row?:number;
+  column?:number;
+}
+
 export interface Polygon {
-  points:Point[]
+  points:Point[];
+  mapping?:Mapping;
 }
 
 export interface Rectangle {
@@ -12,11 +19,5 @@ export interface Rectangle {
   y:number;
   width:number;
   height:number;
-}
-
-export interface Mapping {
-  originalIndex:number;
-  newIndex:number;
-  row?:number;
-  column?:number;
+  mapping?:Mapping;
 }

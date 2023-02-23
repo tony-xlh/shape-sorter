@@ -11,6 +11,9 @@ export default class ShapeSorter {
   }
   
   sortRectangles(rectangles:Rectangle[]): Mapping[] {
+    console.log(rectangles);
+    rectangles.sort((a, b) => (a.x**2 + a.y**2) - (b.x**2 + b.y**2))
+    console.log(rectangles);
     return [];
   }
 
@@ -35,7 +38,8 @@ export default class ShapeSorter {
       x:minX,
       y:minY,
       width: maxX-minX,
-      height:maxY - minY
+      height:maxY - minY,
+      mapping:polygon.mapping
     }
     return rect;
   }
