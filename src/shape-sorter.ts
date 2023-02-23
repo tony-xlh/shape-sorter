@@ -30,7 +30,7 @@ export default class ShapeSorter {
   }
 
   getLines(rectangles:Rectangle[]):Rectangle[][] {
-    let lines = [];
+    let lines:Rectangle[][] = [];
     while (rectangles.length > 0) {
       let rect = rectangles[0];
       let clustered = this.clusterRectanglesToOneLine(rectangles,rect);
@@ -51,7 +51,7 @@ export default class ShapeSorter {
   }
 
   clusterRectanglesToOneLine(rectangles:Rectangle[],baseRect:Rectangle):Rectangle[]|undefined{
-    let line = [];
+    let line:Rectangle[] = [];
     for (let index = rectangles.length - 1; index >= 1; index--) { // start from the second element
       const rect = rectangles[index];
       if (this.rectanglesInOneLine(baseRect,rect)) {
