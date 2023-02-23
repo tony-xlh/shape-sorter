@@ -24,6 +24,9 @@
     "type": "git",
     "url": "git+https://github.com/tony-xlh/shape-sorter.git"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "keywords": [
     "barcode",
     "sorter",
