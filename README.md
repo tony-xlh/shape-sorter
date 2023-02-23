@@ -38,12 +38,11 @@ for (let index = 0; index < mappings.length; index++) {
   sorted.push(rectangles[mapping.originalIndex]);
 }
 console.log(sorted);
-
 //[
-{x: 20, y: 55, width: 50, height: 50, mapping: {originalIndex:1}},
-{x: 55, y: 55, width: 50, height: 50, mapping: {originalIndex:2}},
-{x: 55, y: 105, width: 50, height: 50, mapping: {originalIndex:0}}
-]
+//{x: 20, y: 55, width: 50, height: 50, mapping: {originalIndex:1}},
+//{x: 55, y: 55, width: 50, height: 50, mapping: {originalIndex:2}},
+//{x: 55, y: 105, width: 50, height: 50, mapping: {originalIndex:0}}
+//]
 ```
 
 ## Methods
