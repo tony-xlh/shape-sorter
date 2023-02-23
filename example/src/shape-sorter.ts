@@ -1,6 +1,7 @@
 import { Mapping, Polygon, Rectangle } from "./definitions";
 
 export default class ShapeSorter {
+  horizontal:boolean = true;
   sortPolygons(polygons:Polygon[]): Mapping[] {
     console.log(polygons);
     let rectangles:Rectangle[] = [];
@@ -40,7 +41,12 @@ export default class ShapeSorter {
       }
       rectangles.shift(); //delete the base rect
     }
-    lines.sort((a, b) => (a[0].y - b[0].y));
+    if (this.horizontal) {
+      lines.sort((a, b) => (a[0].y - b[0].y));
+    }else{
+      lines.sort((a, b) => (a[0].x - b[0].x));
+    }
+    
     return lines;
   }
 
@@ -55,7 +61,11 @@ export default class ShapeSorter {
     }
     if (line.length>0) {
       line.push(baseRect);
-      line.sort((a, b) => (a.x - b.x));
+      if (this.horizontal) {
+        line.sort((a, b) => (a.x - b.x));
+      }else{
+        line.sort((a, b) => (a.y - b.y));
+      }
       return line;
     }else{
       return undefined;
@@ -63,14 +73,26 @@ export default class ShapeSorter {
   }
 
   rectanglesInOneLine(r1:Rectangle, r2:Rectangle) {
-    let y = Math.max(r1.y, r2.y);
-    let maxY1 = r1.y + r1.height;
-    let maxY2 = r2.y + r2.height;
-    let intersectH = Math.min(maxY1, maxY2) - y;
-    if (intersectH>0) {
-      return true;
+    if (this.horizontal) {
+      let y = Math.max(r1.y, r2.y);
+      let maxY1 = r1.y + r1.height;
+      let maxY2 = r2.y + r2.height;
+      let intersectH = Math.min(maxY1, maxY2) - y;
+      if (intersectH>0) {
+        return true;
+      }else{
+        return false;
+      }
     }else{
-      return false;
+      let x = Math.max(r1.x, r2.x);
+      let maxX1 = r1.x + r1.width;
+      let maxX2 = r2.x + r2.width;
+      let intersectW = Math.min(maxX1, maxX2) - x;
+      if (intersectW>0) {
+        return true;
+      }else{
+        return false;
+      }
     }
   }
     

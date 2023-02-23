@@ -159,10 +159,11 @@ function clearElements(parent:HTMLElement,tagName:string){
 }
 
 function sortTextResults(){
+  let horizontal = (document.getElementById("horizontal") as HTMLInputElement).checked;
   let sorter = new ShapeSorter();
+  sorter.horizontal = horizontal;
   let polygons = polygonsFromTextResults();
   let mappings = sorter.sortPolygons(polygons);
-  console.log(mappings);
   reorderResultsAndUpdateOverlay(mappings)
 }
 
