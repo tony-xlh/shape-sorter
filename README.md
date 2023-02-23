@@ -9,13 +9,13 @@ Sort shapes like polygon and rectangle in reading order.
 1. Via CDN:
 
    ```html
-   <script src="https://cdn.jsdelivr.net/npm/shape-sorter@latest/dist/shape-sorter.umd.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/shapes-sorter@latest/dist/shape-sorter.umd.js"></script>
    ```
    
 2. Via npm:
 
    ```
-   npm install shape-sorter
+   npm install shapes-sorter
    ```
    
    

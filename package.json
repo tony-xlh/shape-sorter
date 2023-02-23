@@ -1,5 +1,5 @@
 {
-  "name": "shape-sorter",
+  "name": "shapes-sorter",
   "version": "1.0.0",
   "description": "Sort shapes (rectangles, polygons, etc) in reading order",
   "type": "module",
