@@ -17,4 +17,6 @@ export interface Rectangle {
 export interface Mapping {
   originalIndex:number;
   newIndex:number;
+  row?:number;
+  column?:number;
 }
