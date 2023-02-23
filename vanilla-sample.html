@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./dist/shape-sorter.umd.js"></script>
+    <title>JS Sample</title>
+  </head>
+  <body>
+    <div>Check out the console output.</div>
+    <script>
+      let rectangles = [
+        {x:55,y:105,width:50,height:50,mapping:{originalIndex:0}},
+        {x:20,y:55,width:50,height:50,mapping:{originalIndex:1}},
+        {x:55,y:55,width:50,height:50,mapping:{originalIndex:2}}
+      ];
+
+      let sorter = new ShapeSorter();
+      let mappings = sorter.sortRectangles(rectangles);
+      console.log(mappings);
+      let sorted = [];
+      for (let index = 0; index < mappings.length; index++) {
+        const mapping = mappings[index];
+        sorted.push(rectangles[mapping.originalIndex]);
+      }
+      console.log(sorted);
+    </script>
+  </body>
+</html>
