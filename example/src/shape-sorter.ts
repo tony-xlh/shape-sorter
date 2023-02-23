@@ -12,6 +12,7 @@ export default class ShapeSorter {
   }
   
   sortRectangles(rectangles:Rectangle[]): Mapping[] {
+    rectangles = JSON.parse(JSON.stringify(rectangles));
     rectangles.sort((a, b) => (a.x**2 + a.y**2) - (b.x**2 + b.y**2))
     let lines = this.getLines(rectangles);
     return this.getMappingsFromRectangles(this.getRectangesFromLines(lines));
