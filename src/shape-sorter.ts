@@ -2,7 +2,12 @@ import { Mapping, Polygon, Rectangle } from "./definitions";
 
 export default class ShapeSorter {
   sortPolygons(polygons:Polygon[]): Mapping[] {
-    return [];
+    let rectangles:Rectangle[] = [];
+    for (let index = 0; index < polygons.length; index++) {
+      const polygon = polygons[index];
+      rectangles.push(this.convertPolygonToRectangle(polygon));
+    }
+    return this.sortRectangles(rectangles);
   }
   
   sortRectangles(rectangles:Rectangle[]): Mapping[] {
