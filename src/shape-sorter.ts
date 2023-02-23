@@ -3,7 +3,6 @@ import { Mapping, Polygon, Rectangle } from "./definitions";
 export default class ShapeSorter {
   horizontal:boolean = true;
   sortPolygons(polygons:Polygon[]): Mapping[] {
-    console.log(polygons);
     let rectangles:Rectangle[] = [];
     for (let index = 0; index < polygons.length; index++) {
       const polygon = polygons[index];
@@ -14,9 +13,7 @@ export default class ShapeSorter {
   
   sortRectangles(rectangles:Rectangle[]): Mapping[] {
     rectangles.sort((a, b) => (a.x**2 + a.y**2) - (b.x**2 + b.y**2))
-    console.log(rectangles);
     let lines = this.getLines(rectangles);
-    console.log(lines);
     return this.getMappingsFromRectangles(this.getRectangesFromLines(lines));
   }
 
