@@ -30,7 +30,7 @@ async function initDBR(){
   BarcodeReader.engineResourcePath = "https://cdn.jsdelivr.net/npm/dynamsoft-javascript-barcode@9.6.10/dist/";
   BarcodeReader.license = "DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTE2NDk4Mjk3OTI2MzUiLCJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSIsInNlc3Npb25QYXNzd29yZCI6IndTcGR6Vm05WDJrcEQ5YUoifQ==";
   reader = await BarcodeReader.createInstance();
-  await reader.initRuntimeSettingsWithString("{\"Version\":\"3.0\",\"ImageParameter\":{\"Name\":\"Test1\",\"GrayscaleTransformationModes\":[{\"Mode\":\"GTM_INVERTED\"}],\"DPMCodeReadingModes\":[{\"Mode\":\"DPMCRM_GENERAL\"}],\"ExpectedBarcodesCount\":999,\"DeblurLevel\":9,\"Timeout\":99999}}");
+  await reader.initRuntimeSettingsWithString("{\"Version\":\"3.0\",\"ImageParameter\":{\"Name\":\"Test1\",\"GrayscaleTransformationModes\":[{\"Mode\":\"GTM_ORIGINAL\"},{\"Mode\":\"GTM_INVERTED\"}],\"DPMCodeReadingModes\":[{\"Mode\":\"DPMCRM_GENERAL\"}],\"ExpectedBarcodesCount\":999,\"DeblurLevel\":9,\"Timeout\":99999}}");
   status.innerText = "";
 }
 
