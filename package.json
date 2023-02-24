@@ -1,6 +1,6 @@
 {
   "name": "shapes-sorter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Sort shapes (rectangles, polygons, etc) in reading order",
   "type": "module",
   "source": "src/shape-sorter.ts",
