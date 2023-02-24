@@ -2,6 +2,7 @@ import { Mapping, Polygon, Rectangle } from "./definitions";
 
 export default class ShapeSorter {
   horizontal:boolean = true;
+  threshold:number = 0;
   sortPolygons(polygons:Polygon[]): Mapping[] {
     let rectangles:Rectangle[] = [];
     for (let index = 0; index < polygons.length; index++) {
@@ -76,7 +77,7 @@ export default class ShapeSorter {
       let maxY1 = r1.y + r1.height;
       let maxY2 = r2.y + r2.height;
       let intersectH = Math.min(maxY1, maxY2) - y;
-      if (intersectH>0) {
+      if (intersectH>this.threshold) {
         return true;
       }else{
         return false;
