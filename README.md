@@ -54,7 +54,7 @@ sortRectangles(rectangles: Rectangle[]): Mapping[];
 
 ## Properties
 
-Horizontal: if set to true, cluster shapes in rows. Otherwize, cluster shapes in columns.
+Horizontal: if set to true, cluster shapes in rows. Otherwise, cluster shapes in columns.
 
 
 ## Interfaces
